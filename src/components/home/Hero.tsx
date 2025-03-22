@@ -1,6 +1,6 @@
 
 import React, { useEffect, useRef, useState } from 'react';
-import { ArrowDown, Download } from 'lucide-react';
+import { ArrowDown, Download, User } from 'lucide-react';
 import AnimatedText from '../ui/AnimatedText';
 
 const Hero: React.FC = () => {
@@ -32,7 +32,7 @@ const Hero: React.FC = () => {
   return (
     <section 
       ref={heroRef}
-      className="relative h-dynamic-screen flex flex-col justify-center items-center overflow-hidden px-6 lg:px-10"
+      className="relative h-dynamic-screen flex flex-col justify-center items-center overflow-hidden px-6 lg:px-10 subtle-grid noise-texture"
     >
       {/* Gradient background effect */}
       <div 
@@ -47,34 +47,33 @@ const Hero: React.FC = () => {
       <div className="noise" />
       
       <div className="max-w-5xl mx-auto text-center z-10 animate-fade-in">
-        <p className="text-sm md:text-base uppercase tracking-widest mb-6 text-muted-foreground">
+        <p className="text-sm md:text-base uppercase tracking-widest mb-6 text-muted-foreground font-display">
           GenAI Developer | Open Source Enthusiast
         </p>
         
-        <h1 className="font-display text-4xl md:text-6xl lg:text-7xl font-bold leading-tight md:leading-tight lg:leading-tight mb-6">
-          <AnimatedText 
-            text="Mehfooj Alam"
-            className="bg-gradient-to-r from-foreground to-foreground/80 bg-clip-text text-transparent"
-          />
+        <h1 className="font-display text-4xl md:text-6xl lg:text-7xl font-bold leading-tight md:leading-tight lg:leading-tight mb-6 tracking-tight">
+          <span className="block mb-1">Building</span>
+          <span className="block">Tomorrow's AI Solutions</span>
         </h1>
         
         <p className="text-muted-foreground max-w-2xl mx-auto text-base md:text-lg animate-fade-in opacity-0" style={{ animationDelay: '0.8s', animationFillMode: 'forwards' }}>
-          Building Tomorrow's AI Solutions | Facilitator'24 @Google | Entrepreneurship @Y Combinator
+          I'm Mehfooj, a builder of AI systems and automation solutions, weaving intelligence into every line of code. When the world sleeps, my projects come alive.
         </p>
         
-        <div className="mt-10 flex items-center justify-center gap-6 animate-fade-in opacity-0" style={{ animationDelay: '1.2s', animationFillMode: 'forwards' }}>
+        <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-6 animate-fade-in opacity-0" style={{ animationDelay: '1.2s', animationFillMode: 'forwards' }}>
           <button
             onClick={handleScroll}
-            className="bg-foreground text-background rounded-full py-3 px-6 font-medium hover:bg-foreground/90 transition-colors flex items-center gap-2 group"
+            className="group bg-transparent border border-primary/30 hover:border-primary text-primary rounded-full py-3 px-6 font-medium transition-colors flex items-center gap-2 relative overflow-hidden"
           >
-            Discover more
-            <ArrowDown size={16} className="group-hover:translate-y-1 transition-transform" />
+            <User size={16} className="transition-transform" />
+            About Me
+            <span className="absolute inset-0 bg-primary/10 transform scale-x-0 origin-left transition-transform group-hover:scale-x-100"></span>
           </button>
           
           <a
             href="/resume.pdf"
             download
-            className="border border-foreground/20 bg-background/50 text-foreground rounded-full py-3 px-6 font-medium hover:bg-foreground/10 transition-colors flex items-center gap-2 group"
+            className="group bg-transparent border border-muted/30 text-muted-foreground rounded-full py-3 px-6 font-medium hover:text-primary hover:border-primary/30 transition-colors flex items-center gap-2"
           >
             Resume
             <Download size={16} className="group-hover:translate-y-1 transition-transform" />
@@ -83,8 +82,8 @@ const Hero: React.FC = () => {
       </div>
       
       <div className="absolute bottom-10 left-0 right-0 flex justify-center animate-fade-in opacity-0" style={{ animationDelay: '1.5s', animationFillMode: 'forwards' }}>
-        <div className="w-6 h-9 border-2 border-foreground/30 rounded-full flex items-start justify-center p-1">
-          <div className="w-1 h-1 bg-foreground/50 rounded-full animate-[bounce_1.5s_infinite]" />
+        <div onClick={handleScroll} className="cursor-pointer bg-card w-10 h-10 rounded-full flex items-center justify-center shadow-glow animate-pulse-glow">
+          <ArrowDown size={18} className="text-primary animate-float" />
         </div>
       </div>
     </section>

@@ -91,13 +91,13 @@ const Projects: React.FC = () => {
   const filteredProjects = getFilteredProjects();
   
   return (
-    <section id="projects" className="py-20 px-6 lg:px-10">
+    <section id="projects" className="py-24 px-6 lg:px-10 bg-card/50 subtle-grid noise-texture">
       <div className="max-w-7xl mx-auto">
         <div className="mb-16 max-w-3xl">
-          <h2 className="text-sm font-semibold uppercase tracking-widest text-muted-foreground mb-3">
+          <h2 className="text-sm font-semibold uppercase tracking-widest text-muted-foreground mb-3 font-display">
             Projects
           </h2>
-          <h3 className="text-3xl md:text-4xl font-display font-bold mb-6">
+          <h3 className="text-3xl md:text-4xl font-display font-bold mb-6 tracking-tight">
             My Latest Work
           </h3>
           <p className="text-muted-foreground">
@@ -153,22 +153,23 @@ const Projects: React.FC = () => {
           {filteredProjects.map((project) => (
             <div 
               key={project.id}
-              className="group bg-card border border-border/50 rounded-lg overflow-hidden hover:shadow-soft transition-all"
+              className="group bg-card border border-border/50 rounded-lg overflow-hidden hover:shadow-glow transition-all"
             >
               <div className="relative aspect-video overflow-hidden">
+                <div className="absolute inset-0 bg-black/50 z-10 opacity-50 group-hover:opacity-30 transition-opacity"></div>
                 <img 
                   src={project.image} 
                   alt={project.title}
-                  className="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
+                  className="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-110"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end justify-start p-6">
+                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-70 group-hover:opacity-80 transition-opacity flex items-end justify-start p-6 z-20">
                   <div className="flex gap-4">
                     {project.github && (
                       <a 
                         href={project.github} 
                         target="_blank" 
                         rel="noopener noreferrer"
-                        className="w-10 h-10 bg-background/80 backdrop-blur-sm rounded-full flex items-center justify-center text-foreground hover:bg-background transition-colors"
+                        className="w-10 h-10 bg-background/80 backdrop-blur-sm rounded-full flex items-center justify-center text-foreground hover:bg-primary/20 transition-colors"
                       >
                         <Github size={18} />
                       </a>
@@ -178,7 +179,7 @@ const Projects: React.FC = () => {
                         href={project.liveUrl} 
                         target="_blank" 
                         rel="noopener noreferrer"
-                        className="w-10 h-10 bg-background/80 backdrop-blur-sm rounded-full flex items-center justify-center text-foreground hover:bg-background transition-colors"
+                        className="w-10 h-10 bg-background/80 backdrop-blur-sm rounded-full flex items-center justify-center text-foreground hover:bg-primary/20 transition-colors"
                       >
                         <ExternalLink size={18} />
                       </a>
@@ -189,7 +190,7 @@ const Projects: React.FC = () => {
               
               <div className="p-6">
                 <Link to={`/projects/${project.id}`}>
-                  <h4 className="text-xl font-display font-semibold mb-2 hover:text-primary transition-colors">
+                  <h4 className="text-xl font-display font-semibold mb-2 hover:text-primary transition-colors tracking-tight">
                     {project.title}
                   </h4>
                 </Link>
@@ -219,7 +220,7 @@ const Projects: React.FC = () => {
             href="https://github.com/Savvythelegend" 
             target="_blank" 
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 font-medium link-hover"
+            className="inline-flex items-center gap-2 font-medium text-primary hover:text-primary/80 transition-colors"
           >
             View more on GitHub <Github size={16} />
           </a>

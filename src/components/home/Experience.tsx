@@ -69,13 +69,13 @@ const Experience: React.FC = () => {
   ];
   
   return (
-    <section id="experience" className="py-20 px-6 lg:px-10">
+    <section id="experience" className="py-24 px-6 lg:px-10 subtle-grid noise-texture">
       <div className="max-w-7xl mx-auto">
         <div className="mb-16 max-w-3xl">
-          <h2 className="text-sm font-semibold uppercase tracking-widest text-muted-foreground mb-3">
+          <h2 className="text-sm font-semibold uppercase tracking-widest text-muted-foreground mb-3 font-display">
             Experience
           </h2>
-          <h3 className="text-3xl md:text-4xl font-display font-bold mb-6">
+          <h3 className="text-3xl md:text-4xl font-display font-bold mb-6 tracking-tight">
             My Professional Journey
           </h3>
           <p className="text-muted-foreground">
@@ -85,16 +85,16 @@ const Experience: React.FC = () => {
         </div>
         
         <div className="mb-16">
-          <div className="relative border-l border-border/50 pl-8 ml-4 space-y-12">
+          <div className="relative border-l border-border pl-8 ml-4 space-y-12">
             {experiences.map((experience, index) => (
               <div key={index} className="relative">
-                <div className="absolute -left-[41px] bg-card p-2 rounded-full border border-border/50">
+                <div className="absolute -left-[41px] bg-card p-2 rounded-full border border-border shadow-glow animate-pulse-glow">
                   {experience.icon}
                 </div>
-                <div className="bg-card border border-border/50 rounded-lg p-6 hover:shadow-soft transition-shadow">
+                <div className="bg-card border border-border/50 rounded-lg p-6 hover:shadow-glow transition-shadow">
                   <div className="flex justify-between items-start flex-wrap gap-2 mb-3">
                     <div>
-                      <h4 className="text-xl font-display font-semibold">{experience.title}</h4>
+                      <h4 className="text-xl font-display font-semibold tracking-tight">{experience.title}</h4>
                       <p className="text-primary/80">{experience.company}</p>
                     </div>
                     <div className="flex items-center text-muted-foreground text-sm">
@@ -118,17 +118,17 @@ const Experience: React.FC = () => {
         <BlurryDivider className="my-16" />
         
         <div>
-          <h4 className="text-xl font-display font-semibold mb-10 text-center">
+          <h4 className="text-xl font-display font-semibold mb-10 text-center tracking-tight">
             Certifications & Achievements
           </h4>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {certifications.map((cert, index) => (
               <div 
                 key={index}
-                className="bg-card border border-border/50 rounded-lg p-5 hover:shadow-soft transition-shadow"
+                className="bg-card border border-border/50 rounded-lg p-5 hover:shadow-glow transition-shadow"
               >
                 <div className="flex justify-between items-start mb-3">
-                  <h5 className="text-lg font-display font-semibold">
+                  <h5 className="text-lg font-display font-semibold tracking-tight">
                     {cert.title}
                   </h5>
                   <span className="text-xs bg-secondary py-1 px-2 rounded text-muted-foreground">
