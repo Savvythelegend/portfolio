@@ -161,8 +161,8 @@ const Navbar: React.FC = () => {
                   {link.icon}
                 </span>
                 {link.name}
-              </span>
-            </div>
+              </a>
+            ))}
           </div>
         </div>
       </nav>
