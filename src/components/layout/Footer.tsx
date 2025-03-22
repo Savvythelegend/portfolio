@@ -1,7 +1,6 @@
 
 import React from 'react';
 import { Github, Linkedin, Mail, Twitter } from 'lucide-react';
-import { Link } from 'react-router-dom';
 
 const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
@@ -12,6 +11,17 @@ const Footer: React.FC = () => {
     { icon: <Twitter size={18} />, href: 'https://twitter.com', label: 'Twitter' },
     { icon: <Mail size={18} />, href: 'mailto:contact@example.com', label: 'Email' }
   ];
+
+  const scrollToSection = (sectionId: string, e: React.MouseEvent) => {
+    e.preventDefault();
+    const section = document.getElementById(sectionId);
+    if (section) {
+      window.scrollTo({
+        top: section.offsetTop - 80,
+        behavior: 'smooth'
+      });
+    }
+  };
 
   return (
     <footer className="bg-card border-t border-border/50 py-12 px-6 lg:px-10">
@@ -27,10 +37,10 @@ const Footer: React.FC = () => {
           <div className="space-y-4">
             <h4 className="text-sm font-semibold uppercase tracking-wider">Navigation</h4>
             <div className="flex flex-col space-y-2">
-              <Link to="/" className="text-sm text-muted-foreground hover:text-foreground transition">Home</Link>
-              <Link to="/#about" className="text-sm text-muted-foreground hover:text-foreground transition">About</Link>
-              <Link to="/#projects" className="text-sm text-muted-foreground hover:text-foreground transition">Projects</Link>
-              <Link to="/#contact" className="text-sm text-muted-foreground hover:text-foreground transition">Contact</Link>
+              <a href="#home" onClick={(e) => scrollToSection('home', e)} className="text-sm text-muted-foreground hover:text-foreground transition">Home</a>
+              <a href="#about" onClick={(e) => scrollToSection('about', e)} className="text-sm text-muted-foreground hover:text-foreground transition">About</a>
+              <a href="#projects" onClick={(e) => scrollToSection('projects', e)} className="text-sm text-muted-foreground hover:text-foreground transition">Projects</a>
+              <a href="#contact" onClick={(e) => scrollToSection('contact', e)} className="text-sm text-muted-foreground hover:text-foreground transition">Contact</a>
             </div>
           </div>
           
@@ -59,8 +69,8 @@ const Footer: React.FC = () => {
               &copy; {currentYear} SavvyLegend. All rights reserved.
             </p>
             <div className="flex space-x-6 text-sm text-muted-foreground">
-              <Link to="/privacy" className="hover:text-foreground transition">Privacy</Link>
-              <Link to="/terms" className="hover:text-foreground transition">Terms</Link>
+              <a href="/privacy" className="hover:text-foreground transition">Privacy</a>
+              <a href="/terms" className="hover:text-foreground transition">Terms</a>
             </div>
           </div>
         </div>

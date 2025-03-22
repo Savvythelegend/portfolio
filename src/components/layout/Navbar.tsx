@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { Menu, X, Clock, Home, User, Briefcase, Code, MessageSquare } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
@@ -8,7 +8,7 @@ const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [time, setTime] = useState(new Date());
-  const location = useLocation();
+  const [activeSection, setActiveSection] = useState('');
 
   const toggleMenu = () => setIsOpen(!isOpen);
   const closeMenu = () => setIsOpen(false);
@@ -16,6 +16,23 @@ const Navbar: React.FC = () => {
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 20);
+      
+      // Determine active section based on scroll position
+      const sections = ['home', 'about', 'experience', 'projects', 'contact'];
+      const scrollPosition = window.scrollY + 100; // Offset to trigger slightly before reaching section
+      
+      for (const section of sections) {
+        const element = document.getElementById(section);
+        if (element) {
+          const offsetTop = element.offsetTop;
+          const height = element.offsetHeight;
+          
+          if (scrollPosition >= offsetTop && scrollPosition < offsetTop + height) {
+            setActiveSection(section);
+            break;
+          }
+        }
+      }
     };
 
     const timer = setInterval(() => {
@@ -23,18 +40,34 @@ const Navbar: React.FC = () => {
     }, 1000);
 
     window.addEventListener('scroll', handleScroll);
+    // Initial check for active section
+    handleScroll();
+    
     return () => {
       window.removeEventListener('scroll', handleScroll);
       clearInterval(timer);
     };
   }, []);
 
+  const scrollToSection = (sectionId: string, event: React.MouseEvent) => {
+    event.preventDefault();
+    closeMenu();
+    
+    const section = document.getElementById(sectionId);
+    if (section) {
+      window.scrollTo({
+        top: section.offsetTop - 80, // Adjust offset to account for navbar height
+        behavior: 'smooth'
+      });
+    }
+  };
+
   const navLinks = [
-    { name: 'Home', path: '/', icon: <Home size={16} /> },
-    { name: 'About', path: '/#about', icon: <User size={16} /> },
-    { name: 'Journey', path: '/#experience', icon: <Briefcase size={16} /> },
-    { name: 'Work', path: '/#projects', icon: <Code size={16} /> },
-    { name: 'Contact', path: '/#contact', icon: <MessageSquare size={16} /> },
+    { name: 'Home', path: 'home', icon: <Home size={16} /> },
+    { name: 'About', path: 'about', icon: <User size={16} /> },
+    { name: 'Journey', path: 'experience', icon: <Briefcase size={16} /> },
+    { name: 'Work', path: 'projects', icon: <Code size={16} /> },
+    { name: 'Contact', path: 'contact', icon: <MessageSquare size={16} /> },
   ];
 
   return (
@@ -45,13 +78,13 @@ const Navbar: React.FC = () => {
       )}
     >
       <nav className="max-w-7xl mx-auto flex items-center justify-between">
-        <Link 
-          to="/" 
+        <a 
+          href="#home" 
           className="text-xl md:text-2xl font-display font-bold relative z-10 tracking-tight"
-          onClick={closeMenu}
+          onClick={(e) => scrollToSection('home', e)}
         >
           <span className="text-primary">Mehfooj.</span>
-        </Link>
+        </a>
 
         {/* Real-time Clock */}
         <div className="hidden md:flex items-center text-muted-foreground text-sm absolute left-1/2 -translate-x-1/2">
@@ -62,24 +95,25 @@ const Navbar: React.FC = () => {
         {/* Desktop Menu */}
         <div className="hidden md:flex items-center gap-8">
           {navLinks.map((link) => (
-            <Link
+            <a
               key={link.name}
-              to={link.path}
+              href={`#${link.path}`}
+              onClick={(e) => scrollToSection(link.path, e)}
               className={cn(
                 "text-sm font-medium transition-all group flex items-center gap-2",
-                location.pathname + location.hash === link.path 
+                activeSection === link.path 
                   ? "text-primary" 
                   : "text-muted-foreground hover:text-primary"
               )}
             >
               <span className={cn(
                 "transition-colors duration-300 group-hover:text-primary",
-                location.pathname + location.hash === link.path ? "text-primary" : "text-muted-foreground"
+                activeSection === link.path ? "text-primary" : "text-muted-foreground"
               )}>
                 {link.icon}
               </span>
               {link.name}
-            </Link>
+            </a>
           ))}
         </div>
 
@@ -109,26 +143,26 @@ const Navbar: React.FC = () => {
           <div className="h-16" /> {/* Spacer for the logo */}
           <div className="flex flex-col gap-6 mt-10">
             {navLinks.map((link) => (
-              <Link
+              <a
                 key={link.name}
-                to={link.path}
+                href={`#${link.path}`}
                 className={cn(
                   "text-lg font-medium py-2 border-b border-border/50 transition-all flex items-center gap-3",
-                  location.pathname + location.hash === link.path 
+                  activeSection === link.path 
                     ? "text-primary" 
                     : "text-muted-foreground"
                 )}
-                onClick={closeMenu}
+                onClick={(e) => scrollToSection(link.path, e)}
               >
                 <span className={cn(
                   "transition-colors duration-300",
-                  location.pathname + location.hash === link.path ? "text-primary" : "text-muted-foreground"
+                  activeSection === link.path ? "text-primary" : "text-muted-foreground"
                 )}>
                   {link.icon}
                 </span>
                 {link.name}
-              </Link>
-            ))}
+              </span>
+            </div>
           </div>
         </div>
       </nav>

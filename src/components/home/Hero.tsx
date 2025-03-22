@@ -22,15 +22,20 @@ const Hero: React.FC = () => {
     return () => window.removeEventListener('mousemove', handleMouseMove);
   }, []);
   
-  const handleScroll = () => {
+  const handleScroll = (e: React.MouseEvent) => {
+    e.preventDefault();
     const aboutSection = document.getElementById('about');
     if (aboutSection) {
-      aboutSection.scrollIntoView({ behavior: 'smooth' });
+      window.scrollTo({
+        top: aboutSection.offsetTop - 80, // Adjust for navbar height
+        behavior: 'smooth'
+      });
     }
   };
   
   return (
     <section 
+      id="home"
       ref={heroRef}
       className="relative h-dynamic-screen flex flex-col justify-center items-center overflow-hidden px-6 lg:px-10 subtle-grid noise-texture"
     >
@@ -61,14 +66,15 @@ const Hero: React.FC = () => {
         </p>
         
         <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-6 animate-fade-in opacity-0" style={{ animationDelay: '1.2s', animationFillMode: 'forwards' }}>
-          <button
+          <a
+            href="#about"
             onClick={handleScroll}
             className="group bg-transparent border border-primary/30 hover:border-primary text-primary rounded-full py-3 px-6 font-medium transition-colors flex items-center gap-2 relative overflow-hidden"
           >
             <User size={16} className="transition-transform" />
             About Me
             <span className="absolute inset-0 bg-primary/10 transform scale-x-0 origin-left transition-transform group-hover:scale-x-100"></span>
-          </button>
+          </a>
           
           <a
             href="/resume.pdf"
@@ -82,9 +88,13 @@ const Hero: React.FC = () => {
       </div>
       
       <div className="absolute bottom-10 left-0 right-0 flex justify-center animate-fade-in opacity-0" style={{ animationDelay: '1.5s', animationFillMode: 'forwards' }}>
-        <div onClick={handleScroll} className="cursor-pointer bg-card w-10 h-10 rounded-full flex items-center justify-center shadow-glow animate-pulse-glow">
+        <a 
+          href="#about" 
+          onClick={handleScroll}
+          className="cursor-pointer bg-card w-10 h-10 rounded-full flex items-center justify-center shadow-glow animate-pulse-glow"
+        >
           <ArrowDown size={18} className="text-primary animate-float" />
-        </div>
+        </a>
       </div>
     </section>
   );
