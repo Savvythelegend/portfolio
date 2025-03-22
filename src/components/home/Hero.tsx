@@ -53,16 +53,16 @@ const Hero: React.FC = () => {
       
       <div className="max-w-5xl mx-auto text-center z-10 animate-fade-in">
         <p className="text-sm md:text-base uppercase tracking-widest mb-6 text-muted-foreground font-display">
-          GenAI Developer | Open Source Enthusiast
+          Python Developer | Learning ML & Cloud
         </p>
         
         <h1 className="font-display text-4xl md:text-6xl lg:text-7xl font-bold leading-tight md:leading-tight lg:leading-tight mb-6 tracking-tight">
-          <span className="block mb-1">Building</span>
-          <span className="block">Tomorrow's AI Solutions</span>
+          <span className="block mb-1">Building Solutions,</span>
+          <span className="block">One Line at a Time</span>
         </h1>
         
         <p className="text-muted-foreground max-w-2xl mx-auto text-base md:text-lg animate-fade-in opacity-0" style={{ animationDelay: '0.8s', animationFillMode: 'forwards' }}>
-          I'm Mehfooj, a builder of AI systems and automation solutions, weaving intelligence into every line of code. When the world sleeps, my projects come alive.
+          I'm a Python developer exploring AI, DevOps, and Cloud, building automation and backend systems that make a difference.
         </p>
         
         <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-6 animate-fade-in opacity-0" style={{ animationDelay: '1.2s', animationFillMode: 'forwards' }}>

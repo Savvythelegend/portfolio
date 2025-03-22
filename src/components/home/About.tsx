@@ -6,25 +6,30 @@ import { Avatar, AvatarFallback, AvatarImage } from '../ui/avatar';
 
 const About: React.FC = () => {
   const skills = [
-    'Generative AI', 'LLMs', 'Selenium', 'CLI', 'API Development', 
-    'Flask', 'Next.js', 'Tailwind CSS', 'SQL', 'Cloud Computing'
+    'Python', 'Flask', 'SQL', 'APIs', 'Selenium', 
+    'Cloud Basics', 'DevOps (Learning)', 'ML (Learning)', 'AI (Learning)'
   ];
   
-  const services = [
+  const keyPoints = [
     {
       icon: <Code2 size={24} />,
-      title: 'AI Development',
-      description: 'Building intelligent solutions with LLMs and Generative AI technologies.'
+      title: 'Exploring AI & LLMs',
+      description: 'Learning how to build intelligent applications.'
     },
     {
       icon: <Server size={24} />,
-      title: 'Backend Development',
-      description: 'Creating robust backend systems with focus on scalability and performance.'
+      title: 'Working with APIs & Backend Systems',
+      description: 'Building scalable and secure solutions.'
+    },
+    {
+      icon: <Database size={24} />,
+      title: 'Google Cloud Arcade Facilitator',
+      description: 'Expanding my knowledge in cloud computing.'
     },
     {
       icon: <GitBranch size={24} />,
-      title: 'Open Source',
-      description: 'Contributing to open source projects with over 67+ repositories on GitHub.'
+      title: 'Postman Student Expert',
+      description: 'Learning API design, testing, and automation.'
     }
   ];
   
@@ -36,11 +41,11 @@ const About: React.FC = () => {
             About me
           </h2>
           <h3 className="text-3xl md:text-4xl font-display font-bold mb-6 tracking-tight">
-            Passionate AI & Software Developer
+            Aspiring AI & Backend Developer
           </h3>
           <p className="text-muted-foreground">
-            I'm a passionate AI and software developer with experience in Generative AI, LLMs, and backend development.
-            Startup School Fellow at Y Combinator and open-source contributor with 67+ repositories on GitHub.
+            I am a Python developer currently learning Machine Learning, AI, Cloud, and DevOps. 
+            I focus on backend development, automation, and API integrations.
           </p>
         </div>
         
@@ -52,22 +57,21 @@ const About: React.FC = () => {
                 <AvatarFallback>MA</AvatarFallback>
               </Avatar>
               <h4 className="text-xl font-display font-semibold tracking-tight">
-                My Journey
+                Key Areas
               </h4>
             </div>
             <div className="space-y-4 text-muted-foreground">
-              <p>
-                As a GenAI Developer and Open Source Enthusiast, I've been exploring the frontiers of artificial intelligence
-                and its applications. My journey in tech has been driven by a passion for building solutions that make a difference.
-              </p>
-              <p>
-                At Y Combinator's Startup School, I learned lean methodologies, customer acquisition, and startup growth,
-                building valuable connections in the startup ecosystem.
-              </p>
-              <p>
-                As a Postman Student Expert, I'm certified in API design, testing, and automation, and have developed
-                AI-powered API integrations.
-              </p>
+              {keyPoints.map((point, index) => (
+                <div key={index} className="flex items-start gap-3">
+                  <div className="w-6 h-6 flex-shrink-0 text-primary mt-1">
+                    {point.icon}
+                  </div>
+                  <div>
+                    <h5 className="font-medium text-foreground">{point.title}</h5>
+                    <p className="text-sm text-muted-foreground">{point.description}</p>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
           
@@ -102,26 +106,41 @@ const About: React.FC = () => {
         <BlurryDivider className="my-16" />
         
         <div>
-          <h4 className="text-xl font-display font-semibold mb-10 text-center tracking-tight">
-            What I Do
+          <h4 className="text-xl font-display font-semibold mb-6 tracking-tight">
+            My Journey
           </h4>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {services.map((service, index) => (
-              <div 
-                key={index}
-                className="bg-card border border-border/50 rounded-lg p-6 hover:shadow-glow transition-shadow group"
-              >
-                <div className="w-12 h-12 bg-secondary rounded-md flex items-center justify-center mb-4 group-hover:bg-primary/10 transition-colors">
-                  {service.icon}
-                </div>
-                <h5 className="text-lg font-display font-semibold mb-2 tracking-tight">
-                  {service.title}
-                </h5>
-                <p className="text-muted-foreground text-sm">
-                  {service.description}
-                </p>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div className="text-muted-foreground">
+              <p className="mb-4">
+                I started with Python and backend development, gradually expanding into automation, cloud computing, and AI.
+              </p>
+              <p>
+                At Google Cloud Arcade, I'm learning cloud fundamentals. I also contribute to open-source projects and continuously 
+                work on real-world applications to improve my skills.
+              </p>
+            </div>
+            <div className="space-y-4">
+              <div className="bg-card border border-border/50 rounded-lg p-4 hover:shadow-glow transition-shadow">
+                <h5 className="text-lg font-medium mb-2">✅ Python Development</h5>
+                <p className="text-sm text-muted-foreground">Writing clean and efficient code for applications.</p>
               </div>
-            ))}
+              <div className="bg-card border border-border/50 rounded-lg p-4 hover:shadow-glow transition-shadow">
+                <h5 className="text-lg font-medium mb-2">✅ Flask & API Development</h5>
+                <p className="text-sm text-muted-foreground">Building RESTful APIs and backend services.</p>
+              </div>
+              <div className="bg-card border border-border/50 rounded-lg p-4 hover:shadow-glow transition-shadow">
+                <h5 className="text-lg font-medium mb-2">✅ Database Management</h5>
+                <p className="text-sm text-muted-foreground">Working with MySQL and SQL-based databases.</p>
+              </div>
+              <div className="bg-card border border-border/50 rounded-lg p-4 hover:shadow-glow transition-shadow">
+                <h5 className="text-lg font-medium mb-2">✅ AI & ML (Learning)</h5>
+                <p className="text-sm text-muted-foreground">Exploring machine learning and AI tools.</p>
+              </div>
+              <div className="bg-card border border-border/50 rounded-lg p-4 hover:shadow-glow transition-shadow">
+                <h5 className="text-lg font-medium mb-2">✅ Cloud & DevOps (Learning)</h5>
+                <p className="text-sm text-muted-foreground">Understanding cloud platforms and deployment.</p>
+              </div>
+            </div>
           </div>
         </div>
       </div>

@@ -6,24 +6,24 @@ import BlurryDivider from '../ui/BlurryDivider';
 const Experience: React.FC = () => {
   const experiences = [
     {
-      title: 'Startup School Fellow',
-      company: 'Y Combinator',
+      title: 'Google Cloud Arcade Facilitator',
+      company: 'Google Cloud',
       period: '2023 - Present',
       description: [
-        'Learned lean methodologies, customer acquisition, and startup growth.',
-        'Built connections in the startup ecosystem.',
-        'Developed entrepreneurial skills through real-world project implementation.'
+        'Learning cloud fundamentals and platform services.',
+        'Helping others understand cloud technologies.',
+        'Exploring deployment, scaling, and cloud architecture.'
       ],
       icon: <Briefcase size={20} />
     },
     {
-      title: 'Student Expert',
+      title: 'Postman Student Expert',
       company: 'Postman',
       period: '2023 - Present',
       description: [
         'Certified in API design, testing, and automation.',
-        'Developed AI-powered API integrations.',
-        'Shared knowledge and best practices with the community.'
+        'Developing API integrations and documentation.',
+        'Learning API-first development approaches.'
       ],
       icon: <Award size={20} />
     }
@@ -31,10 +31,10 @@ const Experience: React.FC = () => {
   
   const certifications = [
     {
-      title: 'SIH 2024',
-      issuer: 'Smart India Hackathon',
-      date: '2024',
-      description: 'Developer'
+      title: 'Python Development',
+      issuer: 'Self-Paced Learning',
+      date: '2022-Present',
+      description: 'Core Python, Flask, automation'
     },
     {
       title: 'Prompt Engineering',
@@ -73,13 +73,13 @@ const Experience: React.FC = () => {
       <div className="max-w-7xl mx-auto">
         <div className="mb-16 max-w-3xl">
           <h2 className="text-sm font-semibold uppercase tracking-widest text-muted-foreground mb-3 font-display">
-            Experience
+            Journey
           </h2>
           <h3 className="text-3xl md:text-4xl font-display font-bold mb-6 tracking-tight">
-            My Professional Journey
+            My Learning Path
           </h3>
           <p className="text-muted-foreground">
-            A timeline of my professional experiences and growth in the tech industry, showcasing the skills
+            A timeline of my professional experiences and learning journey in technology, showcasing the skills
             and knowledge I've acquired along the way.
           </p>
         </div>
@@ -119,7 +119,7 @@ const Experience: React.FC = () => {
         
         <div>
           <h4 className="text-xl font-display font-semibold mb-10 text-center tracking-tight">
-            Certifications & Achievements
+            Certifications & Learning
           </h4>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {certifications.map((cert, index) => (
