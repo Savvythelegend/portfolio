@@ -24,6 +24,7 @@ const Navbar: React.FC = () => {
   const navLinks = [
     { name: 'Home', path: '/' },
     { name: 'About', path: '/#about' },
+    { name: 'Experience', path: '/#experience' },
     { name: 'Projects', path: '/#projects' },
     { name: 'Contact', path: '/#contact' },
   ];
@@ -42,7 +43,7 @@ const Navbar: React.FC = () => {
           onClick={closeMenu}
         >
           <span className="bg-clip-text text-transparent bg-gradient-to-r from-primary to-primary/80">
-            SavvyLegend
+            Mehfooj Alam
           </span>
         </Link>
 

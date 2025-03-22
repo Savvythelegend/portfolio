@@ -15,52 +15,80 @@ type Project = {
 };
 
 const Projects: React.FC = () => {
-  const [filter, setFilter] = useState<'all' | 'featured'>('all');
+  const [filter, setFilter] = useState<'all' | 'featured' | 'ai' | 'web'>('all');
   
   const projects: Project[] = [
     {
-      id: 'project-1',
-      title: 'E-Commerce Platform',
-      description: 'A modern e-commerce platform built with React, Node.js, and MongoDB. Features include user authentication, product catalog, shopping cart, and payment processing.',
-      tags: ['React', 'Node.js', 'MongoDB', 'Stripe'],
-      image: 'https://images.unsplash.com/photo-1557821552-17105176677c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80',
-      github: 'https://github.com',
-      liveUrl: 'https://example.com',
+      id: 'ai-text-summarizer',
+      title: 'AI Text Summarizer App',
+      description: 'NLP-powered AI summarization tool that condenses long articles and documents into concise summaries.',
+      tags: ['AI', 'NLP', 'Python', 'Flask'],
+      image: 'https://images.unsplash.com/photo-1655720828018-edd2daec9349?auto=format&fit=crop&w=1000&q=80',
+      github: 'https://github.com/Savvythelegend',
       featured: true
     },
     {
-      id: 'project-2',
-      title: 'Portfolio Website',
-      description: 'A sleek portfolio website showcasing my work and skills. Built with React, TypeScript, and TailwindCSS.',
-      tags: ['React', 'TypeScript', 'TailwindCSS'],
-      image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80',
-      github: 'https://github.com',
-      liveUrl: 'https://example.com',
+      id: 'monkeytype-bot',
+      title: 'MonkeyType Bot',
+      description: 'Selenium-based bot automation that demonstrates web automation capabilities for typing tests.',
+      tags: ['Selenium', 'Python', 'Automation'],
+      image: 'https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&fit=crop&w=1000&q=80',
+      github: 'https://github.com/Savvythelegend',
       featured: true
     },
     {
-      id: 'project-3',
-      title: 'Task Management App',
-      description: 'A productivity app to help users manage their tasks and projects. Features include task creation, scheduling, reminders, and analytics.',
-      tags: ['React', 'Redux', 'Firebase'],
-      image: 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80',
-      github: 'https://github.com',
+      id: 'fcc-data-analysis',
+      title: 'FCC Advanced Data Analysis',
+      description: 'Python-based data analysis project using scientific libraries to extract meaningful insights from datasets.',
+      tags: ['Python', 'Data Analysis', 'Pandas', 'Matplotlib'],
+      image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1000&q=80',
+      github: 'https://github.com/Savvythelegend',
       featured: false
     },
     {
-      id: 'project-4',
-      title: 'Weather Dashboard',
-      description: 'A weather dashboard displaying current conditions and forecasts for any location. Integrates with multiple weather APIs.',
-      tags: ['JavaScript', 'CSS', 'Weather API'],
-      image: 'https://images.unsplash.com/photo-1534972195531-d756b9bfa9f2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80',
-      liveUrl: 'https://example.com',
+      id: 'weather-forecast',
+      title: 'Weather Forecast App',
+      description: 'Web app integrating OpenWeatherMap API to provide real-time weather information and forecasts.',
+      tags: ['JavaScript', 'API', 'Web Development'],
+      image: 'https://images.unsplash.com/photo-1592210454359-9043f067919b?auto=format&fit=crop&w=1000&q=80',
+      github: 'https://github.com/Savvythelegend',
+      liveUrl: 'https://savvylegend.tech',
       featured: false
+    },
+    {
+      id: 'jovian-job-app',
+      title: 'Jovian Job App',
+      description: 'Job finder application built with Flask & Jinja templates to help users discover and apply for opportunities.',
+      tags: ['Flask', 'Python', 'Jinja', 'Web'],
+      image: 'https://images.unsplash.com/photo-1598257006458-087169a1f08d?auto=format&fit=crop&w=1000&q=80',
+      github: 'https://github.com/Savvythelegend',
+      featured: true
+    },
+    {
+      id: 'ai-agent',
+      title: 'AI Agent',
+      description: 'Ongoing development of a personal AI assistant capable of handling various tasks through natural language processing.',
+      tags: ['AI', 'LLM', 'Python', 'NLP'],
+      image: 'https://images.unsplash.com/photo-1677442135133-4da240386b64?auto=format&fit=crop&w=1000&q=80',
+      github: 'https://github.com/Savvythelegend',
+      featured: true
     }
   ];
   
-  const filteredProjects = filter === 'all' 
-    ? projects 
-    : projects.filter(project => project.featured);
+  const getFilteredProjects = () => {
+    switch(filter) {
+      case 'featured':
+        return projects.filter(project => project.featured);
+      case 'ai':
+        return projects.filter(project => project.tags.includes('AI') || project.tags.includes('NLP'));
+      case 'web':
+        return projects.filter(project => project.tags.includes('Web') || project.tags.includes('Web Development'));
+      default:
+        return projects;
+    }
+  };
+  
+  const filteredProjects = getFilteredProjects();
   
   return (
     <section id="projects" className="py-20 px-6 lg:px-10">
@@ -70,14 +98,14 @@ const Projects: React.FC = () => {
             Projects
           </h2>
           <h3 className="text-3xl md:text-4xl font-display font-bold mb-6">
-            Selected work I've crafted
+            My Latest Work
           </h3>
           <p className="text-muted-foreground">
-            Here's a collection of my recent projects that showcase my skills and expertise in web development.
-            Each project represents a unique challenge and solution.
+            Here's a collection of my recent projects that showcase my skills in AI, web development, and more.
+            Each project represents a unique problem solved with creativity and technical expertise.
           </p>
           
-          <div className="flex gap-4 mt-8">
+          <div className="flex flex-wrap gap-4 mt-8">
             <button
               onClick={() => setFilter('all')}
               className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
@@ -98,10 +126,30 @@ const Projects: React.FC = () => {
             >
               Featured
             </button>
+            <button
+              onClick={() => setFilter('ai')}
+              className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
+                filter === 'ai' 
+                  ? 'bg-primary text-primary-foreground' 
+                  : 'bg-secondary text-muted-foreground hover:text-foreground'
+              }`}
+            >
+              AI Projects
+            </button>
+            <button
+              onClick={() => setFilter('web')}
+              className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
+                filter === 'web' 
+                  ? 'bg-primary text-primary-foreground' 
+                  : 'bg-secondary text-muted-foreground hover:text-foreground'
+              }`}
+            >
+              Web Development
+            </button>
           </div>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {filteredProjects.map((project) => (
             <div 
               key={project.id}
@@ -168,7 +216,7 @@ const Projects: React.FC = () => {
             Interested in seeing more of my work?
           </p>
           <a 
-            href="https://github.com" 
+            href="https://github.com/Savvythelegend" 
             target="_blank" 
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 font-medium link-hover"

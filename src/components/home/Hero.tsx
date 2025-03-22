@@ -1,6 +1,6 @@
 
 import React, { useEffect, useRef, useState } from 'react';
-import { ArrowDown } from 'lucide-react';
+import { ArrowDown, Download } from 'lucide-react';
 import AnimatedText from '../ui/AnimatedText';
 
 const Hero: React.FC = () => {
@@ -48,28 +48,37 @@ const Hero: React.FC = () => {
       
       <div className="max-w-5xl mx-auto text-center z-10 animate-fade-in">
         <p className="text-sm md:text-base uppercase tracking-widest mb-6 text-muted-foreground">
-          Full-Stack Developer
+          GenAI Developer | Open Source Enthusiast
         </p>
         
         <h1 className="font-display text-4xl md:text-6xl lg:text-7xl font-bold leading-tight md:leading-tight lg:leading-tight mb-6">
           <AnimatedText 
-            text="Crafting Digital Experiences with Precision"
+            text="Mehfooj Alam"
             className="bg-gradient-to-r from-foreground to-foreground/80 bg-clip-text text-transparent"
           />
         </h1>
         
-        <p className="text-muted-foreground max-w-xl mx-auto text-base md:text-lg animate-fade-in opacity-0" style={{ animationDelay: '0.8s', animationFillMode: 'forwards' }}>
-          I design and build applications that are not just functional, but delightful to use. Let's create something amazing together.
+        <p className="text-muted-foreground max-w-2xl mx-auto text-base md:text-lg animate-fade-in opacity-0" style={{ animationDelay: '0.8s', animationFillMode: 'forwards' }}>
+          Building Tomorrow's AI Solutions | Facilitator'24 @Google | Entrepreneurship @Y Combinator
         </p>
         
-        <div className="mt-10 animate-fade-in opacity-0" style={{ animationDelay: '1.2s', animationFillMode: 'forwards' }}>
+        <div className="mt-10 flex items-center justify-center gap-6 animate-fade-in opacity-0" style={{ animationDelay: '1.2s', animationFillMode: 'forwards' }}>
           <button
             onClick={handleScroll}
-            className="bg-foreground text-background rounded-full py-3 px-6 font-medium hover:bg-foreground/90 transition-colors flex items-center gap-2 mx-auto group"
+            className="bg-foreground text-background rounded-full py-3 px-6 font-medium hover:bg-foreground/90 transition-colors flex items-center gap-2 group"
           >
             Discover more
             <ArrowDown size={16} className="group-hover:translate-y-1 transition-transform" />
           </button>
+          
+          <a
+            href="/resume.pdf"
+            download
+            className="border border-foreground/20 bg-background/50 text-foreground rounded-full py-3 px-6 font-medium hover:bg-foreground/10 transition-colors flex items-center gap-2 group"
+          >
+            Resume
+            <Download size={16} className="group-hover:translate-y-1 transition-transform" />
+          </a>
         </div>
       </div>
       

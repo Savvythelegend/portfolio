@@ -1,30 +1,29 @@
 
 import React from 'react';
-import { Code2, Lightbulb, Rocket } from 'lucide-react';
+import { Code2, Lightbulb, Rocket, Database, Server, GitBranch } from 'lucide-react';
 import BlurryDivider from '../ui/BlurryDivider';
 
 const About: React.FC = () => {
   const skills = [
-    'React', 'TypeScript', 'Node.js', 'Next.js', 'TailwindCSS',
-    'MongoDB', 'PostgreSQL', 'GraphQL', 'REST API', 'AWS',
-    'Docker', 'Git', 'CI/CD', 'Figma', 'UI/UX Design'
+    'Generative AI', 'LLMs', 'Selenium', 'CLI', 'API Development', 
+    'Flask', 'Next.js', 'Tailwind CSS', 'SQL', 'Cloud Computing'
   ];
   
   const services = [
     {
       icon: <Code2 size={24} />,
-      title: 'Development',
-      description: 'Building robust, scalable web applications with modern technologies and best practices.'
+      title: 'AI Development',
+      description: 'Building intelligent solutions with LLMs and Generative AI technologies.'
     },
     {
-      icon: <Lightbulb size={24} />,
-      title: 'Design',
-      description: 'Creating beautiful, intuitive interfaces that provide exceptional user experiences.'
+      icon: <Server size={24} />,
+      title: 'Backend Development',
+      description: 'Creating robust backend systems with focus on scalability and performance.'
     },
     {
-      icon: <Rocket size={24} />,
-      title: 'Deployment',
-      description: 'Setting up efficient CI/CD pipelines and infrastructure for seamless deployment.'
+      icon: <GitBranch size={24} />,
+      title: 'Open Source',
+      description: 'Contributing to open source projects with over 67+ repositories on GitHub.'
     }
   ];
   
@@ -36,12 +35,11 @@ const About: React.FC = () => {
             About me
           </h2>
           <h3 className="text-3xl md:text-4xl font-display font-bold mb-6">
-            Passionate about building exceptional digital experiences
+            Passionate AI & Software Developer
           </h3>
           <p className="text-muted-foreground">
-            I'm a full-stack developer with a passion for creating elegant, efficient solutions to complex problems. 
-            With a strong foundation in modern web technologies and a keen eye for design, I bring ideas to life with 
-            clean code and intuitive interfaces.
+            I'm a passionate AI and software developer with experience in Generative AI, LLMs, and backend development.
+            Startup School Fellow at Y Combinator and open-source contributor with 67+ repositories on GitHub.
           </p>
         </div>
         
@@ -52,23 +50,23 @@ const About: React.FC = () => {
             </h4>
             <div className="space-y-4 text-muted-foreground">
               <p>
-                With over 5 years of experience in web development, I've had the privilege of working on a diverse range 
-                of projects, from small business websites to complex enterprise applications.
+                As a GenAI Developer and Open Source Enthusiast, I've been exploring the frontiers of artificial intelligence
+                and its applications. My journey in tech has been driven by a passion for building solutions that make a difference.
               </p>
               <p>
-                My approach combines technical expertise with a deep understanding of user needs, ensuring that every 
-                project I undertake not only functions flawlessly but also provides an exceptional user experience.
+                At Y Combinator's Startup School, I learned lean methodologies, customer acquisition, and startup growth,
+                building valuable connections in the startup ecosystem.
               </p>
               <p>
-                When I'm not coding, you'll find me exploring new technologies, contributing to open-source projects, 
-                or sharing my knowledge through blog posts and community engagement.
+                As a Postman Student Expert, I'm certified in API design, testing, and automation, and have developed
+                AI-powered API integrations.
               </p>
             </div>
           </div>
           
           <div>
             <h4 className="text-xl font-display font-semibold mb-6">
-              Skills & Technologies
+              Skills & Tech Stack
             </h4>
             <div className="flex flex-wrap gap-2">
               {skills.map((skill, index) => (
@@ -80,6 +78,17 @@ const About: React.FC = () => {
                 </span>
               ))}
             </div>
+            
+            <div className="mt-8">
+              <h4 className="text-xl font-display font-semibold mb-4">
+                Education
+              </h4>
+              <div className="bg-card border border-border/50 rounded-lg p-4">
+                <h5 className="font-medium">Maharshi Dayanand University</h5>
+                <p className="text-sm text-muted-foreground">Bachelor of Technology (BTech) in Computer Science</p>
+                <p className="text-xs text-muted-foreground mt-1">July 2023 - July 2027</p>
+              </div>
+            </div>
           </div>
         </div>
         
@@ -87,7 +96,7 @@ const About: React.FC = () => {
         
         <div>
           <h4 className="text-xl font-display font-semibold mb-10 text-center">
-            Services I Offer
+            What I Do
           </h4>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {services.map((service, index) => (
