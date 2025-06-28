@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Briefcase, Award, Calendar } from 'lucide-react';
 import BlurryDivider from '../ui/BlurryDivider';
