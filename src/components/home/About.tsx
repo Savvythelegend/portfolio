@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Code2, Lightbulb, Database, Server, GitBranch } from 'lucide-react';
 import BlurryDivider from '../ui/BlurryDivider';
