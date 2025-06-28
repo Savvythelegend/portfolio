@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { Menu, X, Clock, Home, User, Briefcase, Code, MessageSquare } from 'lucide-react';
 import { cn } from '@/lib/utils';
