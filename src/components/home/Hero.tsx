@@ -1,4 +1,3 @@
-
 import React, { useEffect, useRef, useState } from 'react';
 import { ArrowDown, Download, User } from 'lucide-react';
 import AnimatedText from '../ui/AnimatedText';
