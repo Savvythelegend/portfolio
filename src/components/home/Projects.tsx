@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ExternalLink, Github } from 'lucide-react';
@@ -222,7 +221,7 @@ const Projects: React.FC = () => {
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 font-medium text-primary hover:text-primary/80 transition-colors"
           >
-            View more on GitHub <Github size={16} />
+            View more on GitHub .<Github size={16} />
           </a>
         </div>
       </div>
